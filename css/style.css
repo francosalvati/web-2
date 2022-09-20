@@ -1,0 +1,8 @@
+html, body {
+    height: 100%;
+    background-color: #bae1f7;
+    background-image: linear-gradient(90deg, #bae1f7 0%, #ffffff 100%);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Alfa Slab One', cursive;
+}
