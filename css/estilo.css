@@ -1,0 +1,16 @@
+html , body{
+    height: 100%;
+}
+
+.footer{
+    display: flex;
+    align-items: baseline;
+}
+
+.nav{
+    margin-left: auto;
+}
+
+.img{
+    object-fit: cover;
+}

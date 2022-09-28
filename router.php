@@ -1,6 +1,6 @@
 <?php
 
-require_once './app/tasks.php';
+require_once 'app/controllers/albumController.php';
 
 define( 'BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER ['PHP_SELF']).'/');
 
@@ -12,12 +12,18 @@ if (!empty($_GET['action'])){
 
 $params = explode('/', $action);
 
+ $albumController = new albumController();
+
 switch($params[0]){
     case 'home':
-        showAlbums();
+        $albumController->showAlbums();
         break;
     case 'canciones':
-        showCanciones($params[1]);
+        if(!empty($params[1])){
+            $albumController->showSongs($params[1]);
+        }else{
+            $albumController->showAllSongs();
+        }
         break;
     default:
     echo ('error');
