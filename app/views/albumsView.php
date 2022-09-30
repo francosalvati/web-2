@@ -11,5 +11,8 @@ class AlbumsView{
 
     function showAlbums($albums){
         
+        $this->smarty->assign('albums', $albums);
+        
+        $this->smarty->display('templates/albumsList.tpl');
     }
 }
