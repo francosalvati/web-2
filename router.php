@@ -25,6 +25,9 @@ switch($params[0]){
             $albumController->showAllSongs();
         }
         break;
+    case 'admin':
+        $albumController->AdminInsert();
+        break;
     default:
     echo ('error');
     

@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="<?php echo BASE_URL ?>">
 
+    <base href="<?php echo BASE_URL ?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
 <nav class="p-3 text-bg-secondary">
   <div class="container">
     <div class="d-flex flex-wrap justify-content-center">
-      <a href="/" class="d-flex align-items-center mb-lg-0 text-white text-decoration-none fs-4">
+      <a href="#" class="d-flex align-items-center mb-lg-0 text-white text-decoration-none fs-4">
         Spoty-False
       </a>
       <ul class="nav col-12 col-lg-auto ml-auto me-lg-auto mb-2 d-flex justify-content-center mb-md-0">
@@ -41,4 +41,3 @@
   
 <!-- asdasdasd -->
      
-

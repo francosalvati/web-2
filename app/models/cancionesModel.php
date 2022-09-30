@@ -23,9 +23,9 @@ class CancionesModel{
         $query = $this->db->prepare('SELECT * FROM canciones where id_album_fk = ?');
         $query->execute([$id_album_fk]);
 
-        $canciones = $query->fetchAll(PDO::FETCH_OBJ);
+        $songs = $query->fetchAll(PDO::FETCH_OBJ);
         
-        return $canciones;
+        return $songs;
     }
 
     function insert($nombre, $duracion, $albumId){

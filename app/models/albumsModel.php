@@ -17,14 +17,25 @@ class AlbumsModel {
 
         return $albums;
     }
+
+    function getAlbum($id_album_fk){
+
+        $query = $this->db->prepare('SELECT * FROM album where id = ?');
+        $query->execute([$id_album_fk]);
+
+        $album = $query->fetch(PDO::FETCH_OBJ);
         
-    function insert(){
+        return $album;
+    }
+
+        
+    function insert($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL){
 
 
         $query = $this->db->prepare('INSERT INTO album(nombre, año, banda, genero, cant_canciones, img) VALUES (?, ?, ?, ?, ?, ?)');
-        $query->execute($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL,);
+        $query->execute($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL);
 
-        return console.log('insertado correctamente');
+        return console.log('album insertado correctamente');
     }
 
     function delete($id){
