@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2022 a las 15:04:09
+-- Tiempo de generación: 04-10-2022 a las 23:49:33
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -43,8 +43,8 @@ CREATE TABLE `album` (
 
 INSERT INTO `album` (`id`, `nombre`, `banda`, `genero`, `año`, `cant_canciones`, `imgURL`) VALUES
 (1, 'Devorando Intensidad', 'El plan de la mariposa', 'Rock', 2017, 13, 'https://i.scdn.co/image/ab67616d0000b273f8eaa1230efe02e0be3fb1b7'),
-(2, 'Vida', 'sui generis', 'rock nacional', 1972, 11, 'https://http2.mlstatic.com/D_NQ_NP_901724-MLA40025118487_122019-O.jpg');
-(3, 'Oktubre', 'patricio rey y sus redonditos de ricota', 'rock nacional', 1986, 9, 'https://i.scdn.co/image/ab67616d0000b273c7c1ffa44473871a6f004786');
+(2, 'vida', 'sui generis', 'rock nacional', 1972, 11, 'https://upload.wikimedia.org/wikipedia/commons/0/01/Sui_Generis_-_Vida.jpg'),
+(3, 'Oktubre', 'Patricio rey y sus redonditos de ricota', 'Rock nacional', 1986, 9, 'https://www.cmtv.com.ar/tapas-cd/redondosoktubre.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,28 @@ INSERT INTO `canciones` (`id`, `nombre`, `duracion`, `id_album_fk`) VALUES
 (1, 'Necesito', 213, 2),
 (2, 'Cancion para mi muerte', 335, 2),
 (5, 'Cuando comenzamos a nacer', 243, 2),
-(6, 'Amigo vuelve pronto', 325, 2);
+(6, 'Amigo vuelve pronto', 325, 2),
+(8, 'Fuegos de octubre', 338, 3),
+(9, 'Preso en mi ciudad', 403, 3),
+(10, 'Musica para pastillas', 435, 3),
+(11, 'Semen-Up', 522, 3),
+(12, 'El riesgo', 429, 1),
+(13, 'Mar argentino', 343, 1),
+(14, 'Invierno nuclear', 409, 1),
+(15, 'Como decir que no?', 419, 1),
+(16, 'Cruz del sur', 430, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(30) NOT NULL,
+  `contraseña` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
@@ -87,6 +108,12 @@ ALTER TABLE `canciones`
   ADD KEY `id_album_fk` (`id_album_fk`);
 
 --
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -94,13 +121,19 @@ ALTER TABLE `canciones`
 -- AUTO_INCREMENT de la tabla `album`
 --
 ALTER TABLE `album`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `canciones`
 --
 ALTER TABLE `canciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
