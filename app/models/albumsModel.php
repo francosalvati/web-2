@@ -31,15 +31,12 @@ class AlbumsModel {
         
     function insert($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL){
 
+        $query = $this->db->prepare("INSERT INTO album (nombre, año, banda, genero, cant_canciones, imgURL) VALUES (?, ?, ?, ?, ?, ?)");
+        $query->execute([$nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL]);
 
-        $query = $this->db->prepare('INSERT INTO album(nombre, año, banda, genero, cant_canciones, img) VALUES (?, ?, ?, ?, ?, ?)');
-        $query->execute($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL);
-
-        return console.log('album insertado correctamente');
     }
 
     function delete($id){
-
 
         $query = $this->db->prepare('DELETE FROM album where id = ?');
         $query->execute([$id]);

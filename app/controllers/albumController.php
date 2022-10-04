@@ -47,4 +47,25 @@ class AlbumController {
         $this->adminView->showAdmin();
     }
 
+    function addAlbum(){
+
+        $nombre = $_GET['nombre'];
+        $banda = $_GET['banda'];
+        $genero = $_GET['genero'];
+        $año = $_GET['año'];
+        $cantidadCanciones = $_GET['cant-canciones'];
+        $imgURL = $_GET['imgURL'];
+
+        $this->albumsModel->insert($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL);
+
+        $this->showAlbums();
+    }
+
+    function deleteAlbum($id){
+        
+        $this->albumsModel->delete($id);
+
+        $this->showAlbums();
+    }
+
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-09-30 04:12:40
+/* Smarty version 4.2.1, created on 2022-09-30 17:59:41
   from 'C:\xampp\htdocs\tpeweb2\templates\adminForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63365098bcc888_96333606',
+  'unifunc' => 'content_6337126dbfeae2_00334562',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '824e44cb3e620216bcf8f45cca47b2e72e877c84' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpeweb2\\templates\\adminForm.tpl',
-      1 => 1664503938,
+      1 => 1664553519,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_63365098bcc888_96333606 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6337126dbfeae2_00334562 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -32,7 +32,7 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
                     <div class="container d-flex justify-content-center my-4 py-4">
                     <div class="col-md-8 col-lg-10">
                         <h4 class="mb-3">Agregar Album</h4>
-                            <form id="form-album" method="GET">
+                            <form id="form-album" action="add" method="GET">
                                 <div class="row g-3">
                                     <div class="col-sm-12">
                                         <label for="firstName" class="form-label">Nombre del Album</label>
@@ -50,7 +50,7 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
                                     </div>
                                     
                             
-                                <div class="col-8">
+                                <div class="col-12">
                                     <label for="email" class="form-label">Genero</label>
                                     <input type="text" class="form-control" name="genero" placeholder="Rock">
                                     <div class="invalid-feedback">
@@ -58,9 +58,16 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
                                     </div>
                                 </div>
                             
-                            <div class="col-4">
+                            <div class="col-6">
                                 <label for="address" class="form-label">Año</label>
                                 <input type="text" class="form-control" name="año" placeholder="1990" required="">
+                                <div class="invalid-feedback">
+                                    Please enter your shipping address.
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="address" class="form-label">Canciones</label>
+                                <input type="text" class="form-control" name="cant-canciones" placeholder="10" required="">
                                 <div class="invalid-feedback">
                                     Please enter your shipping address.
                                 </div>

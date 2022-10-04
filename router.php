@@ -29,6 +29,14 @@ switch($params[0]){
     case 'admin':
         $albumController->AdminInsert();
         break;
+    case'add':
+        $albumController->addAlbum();
+        break;
+    case'delete':
+        if(!empty($params[1])){
+        $albumController->deleteAlbum($params[1]);
+        }
+        break;
     default:
     echo ('error');
     

@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body p-2">
                         <h2 class="h5 card-text text-center text-muted">{$album->nombre}</h2>
-
+                        <a href="delete/{$album->id}"><button class="btn color-primary" >X</button></a>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,6 @@
                 </div>
                 <div class="card-body p-2">
                     <h2 class="h5 card-text text-center text-muted">Agregar album</h2>
-
                 </div>
             </div>
         </div>
