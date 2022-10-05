@@ -30,7 +30,7 @@ class CancionesModel{
 
     function insert($nombre, $duracion, $albumId){
     
-        $query = $this->db->prepare('INSERT INTO canciones(nombre, duracion, id_album_fk)');
+        $query = $this->db->prepare('INSERT INTO canciones(nombre, duracion, id_album_fk) VALUES (?, ?, ?)');
         $query->execute([$nombre, $duracion, $albumId]);
     }
 

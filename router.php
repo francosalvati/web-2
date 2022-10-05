@@ -26,18 +26,23 @@ switch($params[0]){
             $albumController->showAllSongs();
         }
         break;
-    case 'admin':
-        $albumController->AdminInsert();
-        break;
-    case'add':
+    case'addAlbum':
         $albumController->addAlbum();
         break;
-    case'delete':
-        if(!empty($params[1])){
-        $albumController->deleteAlbum($params[1]);
-        }
+    case'addSong':
+        $albumController->addSong($params[1]);
         break;
-    default:
+        case'deleteAlbum':
+            if(!empty($params[1])){
+            $albumController->deleteAlbum($params[1]);
+            }
+        break;
+        case'deleteSong':
+            if(!empty($params[2])){
+            $albumController->deleteSong($params[2], $params[1]);
+            }
+        break;
+        default:
     echo ('error');
     
 }

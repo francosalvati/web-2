@@ -7,15 +7,16 @@
                 <div class="card p-1 bg-light mx-2">
                     <div>
                         <a href="canciones/{$album->id}">
-                            <img src="{$album->imgURL}" class="images img-thumbnail" height="230">
+                            <img src="{$album->imgURL}" class="w-100">
                         </a>
                     </div>
                     <div class="card-body p-2">
                         <h2 class="h5 card-text text-center text-muted">{$album->nombre}</h2>
-                        <a href="delete/{$album->id}"><button class="btn color-primary" >X</button></a>
+                        <a href="deleteAlbum/{$album->id}"><button class="btn color-primary" >X</button></a>
                     </div>
                 </div>
             </div>
+            
         {/foreach}
         <div class="col">
             <div class="card p-1 bg-light mx-2">

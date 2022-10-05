@@ -43,9 +43,6 @@ class AlbumController {
         $this->songsView->showAlbumSongs($songs, $album);
     }
 
-    function AdminInsert(){
-        $this->adminView->showAdmin();
-    }
 
     function addAlbum(){
 
@@ -61,11 +58,28 @@ class AlbumController {
         $this->showAlbums();
     }
 
+    function addSong($id_album_fk){
+
+        $nombre = $_GET['nombre'];
+        $duracion = $_GET['duracion'];
+
+        $this->songsModel->insert( $nombre, $duracion, $id_album_fk);
+
+        $this->showSongs($id_album_fk);
+    }
+
     function deleteAlbum($id){
         
         $this->albumsModel->delete($id);
 
         $this->showAlbums();
+    }
+
+    function deleteSong($id, $id_album_fk){
+
+        $this->songsModel->delete($id);
+
+        $this->showSongs($id_album_fk);
     }
 
 }

@@ -1,4 +1,30 @@
-{include file="templates/header.tpl"}
+<?php
+/* Smarty version 4.2.1, created on 2022-10-05 00:56:41
+  from 'C:\xampp\htdocs\TPEweb2\templates\adminForm.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_633cba29007df0_25671102',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '93fd67a012103e75ec7545711e82abe17ca3f5d4' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\TPEweb2\\templates\\adminForm.tpl',
+      1 => 1664924199,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:templates/header.tpl' => 1,
+    'file:templates/footer.tpl' => 1,
+  ),
+),false)) {
+function content_633cba29007df0_25671102 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 <div class="container w-100 mt-4">
 
@@ -6,7 +32,7 @@
         <div class="container d-flex justify-content-center my-4 py-4">
             <div class="col-md-8 col-lg-10">
                 <h4 class="mb-3">Agregar Album</h4>
-                <form id="form-album" action="addAlbum" method="GET">
+                <form id="form-album" action="add" method="GET">
                     <div class="row g-3">
                         <div class="col-sm-12">
                             <label for="firstName" class="form-label">Nombre del Album</label>
@@ -64,4 +90,6 @@
     </div>
 </div>
 
-{include file="templates/footer.tpl"}
+<?php $_smarty_tpl->_subTemplateRender("file:templates/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}

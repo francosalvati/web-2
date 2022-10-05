@@ -5,11 +5,15 @@
     <div class="list-group w-75">
         {foreach from=$songs item=$song }
             <li class="list-group-item list-group-item-action d-flex gap-3 py-3">
-                {$i++} - 
+                {$i++} -
                 {$song->nombre}
             </li>
         {/foreach }
     </div>
 </div>
+
+
+
+
 
 {include file="templates/footer.tpl"}
