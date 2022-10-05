@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-05 15:44:42
+/* Smarty version 4.2.1, created on 2022-10-05 17:54:27
   from 'C:\xampp\htdocs\TPEweb2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633d8a4a169f40_41165923',
+  'unifunc' => 'content_633da8b3c0d987_34544204',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b11e5183644fe7ab1ea27b0ba5b52a69bc1080bf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEweb2\\templates\\header.tpl',
-      1 => 1664977479,
+      1 => 1664985264,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_633d8a4a169f40_41165923 (Smarty_Internal_Template $_smarty_tpl) {
+function content_633da8b3c0d987_34544204 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -54,8 +54,9 @@ function content_633d8a4a169f40_41165923 (Smarty_Internal_Template $_smarty_tpl)
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-white text-bg-light text-dark"
+                    <input type="search" id="search" class="form-control form-control-white text-bg-light text-dark"
                         placeholder="Search..." aria-label="Search">
+                        <input type="submit">
                 </form>
 
                 <div class="text-end">

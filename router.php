@@ -19,6 +19,7 @@ switch($params[0]){
     case 'home':
         $albumController->showAlbums();
         break;
+
     case 'canciones':
         if(!empty($params[1])){
             $albumController->showSongs($params[1]);
@@ -26,23 +27,28 @@ switch($params[0]){
             $albumController->showAllSongs();
         }
         break;
+
     case'addAlbum':
         $albumController->addAlbum();
         break;
+
     case'addSong':
         $albumController->addSong($params[1]);
         break;
-        case'deleteAlbum':
-            if(!empty($params[1])){
-            $albumController->deleteAlbum($params[1]);
-            }
+
+    case'deleteAlbum':
+        if(!empty($params[1])){
+        $albumController->deleteAlbum($params[1]);
+        }
         break;
-        case'deleteSong':
-            if(!empty($params[2])){
-            $albumController->deleteSong($params[2], $params[1]);
-            }
+
+    case'deleteSong':
+        if(!empty($params[2])){
+        $albumController->deleteSong($params[2], $params[1]);
+        }
         break;
-        default:
+
+    default:
     echo ('error');
     
 }
