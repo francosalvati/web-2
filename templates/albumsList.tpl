@@ -11,8 +11,7 @@
                         </a>
                     </div>
                     <div class="card-body p-2">
-                        <h2 class="h5 card-text text-center text-muted">{$album->nombre}</h2>
-                        <a href="deleteAlbum/{$album->id}"><button class="btn color-primary" >X</button></a>
+                        <h2 class="h5 card-text text-center text-muted">{$album->nombre}<a href="deleteAlbum/{$album->id}" ><button type="button" class="btn btn-danger" >X</button></a></h2>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-09-30 04:51:50
+/* Smarty version 4.2.1, created on 2022-10-06 00:16:44
   from 'C:\xampp\htdocs\tpeweb2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633659c67b32c9_99636675',
+  'unifunc' => 'content_633e024c0ba298_79721650',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9badb64d23305eec8e44f2931823bb176e32b55' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpeweb2\\templates\\header.tpl',
-      1 => 1664506136,
+      1 => 1665008197,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_633659c67b32c9_99636675 (Smarty_Internal_Template $_smarty_tpl) {
+function content_633e024c0ba298_79721650 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -33,8 +33,8 @@ function content_633659c67b32c9_99636675 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spoty-False</title>
 
-    <link href="./css/estilo.css" rel="stylesheet" type="text/css">
     <!-- bootstrap -->
+    <link href="estilos/estilos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
@@ -43,28 +43,28 @@ function content_633659c67b32c9_99636675 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 
 <body>
-    <nav class="p-3 text-bg-secondary">
+    <nav class="p-3 text-bg-dark">
         <div class="container">
             <div class="d-flex flex-wrap justify-content-center">
                 <a href="#" class="d-flex align-items-center mb-lg-0 text-white text-decoration-none fs-4">
-                    Spoty-False
+                    <img src="./images/logo-spoty.png" width="150" height="50" class="mx-4" style="object-fit: cover;">
                 </a>
                 <ul class="nav col-12 col-lg-auto ml-auto me-lg-auto mb-2 d-flex justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 text-light">Albums</a></li>
                     <li><a href="canciones" class="nav-link px-2 text-light">Canciones</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-white text-bg-light text-dark"
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="get" action="">
+                    <input type="search" id="search" name="search" class="form-control form-control-white text-bg-light text-dark"
                         placeholder="Search..." aria-label="Search">
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-warning">login</button>
+                    <a href="login"><button type="button" class="btn btn-warning">login</button></a>
                 </div>
             </div>
         </div>
     </nav>
 
-<!-- asdasdasd --><?php }
+<?php }
 }

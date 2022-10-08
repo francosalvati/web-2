@@ -28,6 +28,10 @@ switch($params[0]){
         }
         break;
 
+    case 'admin':
+        $albumController->adminView();
+        break;
+
     case'addAlbum':
         $albumController->addAlbum();
         break;
@@ -46,6 +50,10 @@ switch($params[0]){
         if(!empty($params[2])){
         $albumController->deleteSong($params[2], $params[1]);
         }
+        break;
+    
+    case'login':
+        $albumController->loginView();
         break;
 
     default:

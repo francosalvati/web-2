@@ -5,6 +5,7 @@ require_once './app/models/cancionesModel.php';
 require_once './app/views/albumsView.php';
 require_once './app/views/cancionesView.php';
 require_once './app/views/adminView.php';
+require_once './app/views/loginView.php';
 
 class AlbumController {
 
@@ -13,6 +14,7 @@ class AlbumController {
     private $albumsView;
     private $songsView;
     private $adminView;
+    private $loginView;
 
     function __construct() {
         
@@ -21,12 +23,21 @@ class AlbumController {
         $this->songsModel = new CancionesModel();
         $this->songsView = new CancionesView();
         $this->adminView = new AdminView();
+        $this->loginView = new LoginView();
     }
     
     function showAlbums(){
         
-        $albums = $this->albumsModel->getAll();
-        $this->albumsView->showAlbums($albums);
+        if(isset($_GET['search'])){
+            $album = $this->albumsModel->getAlbum($_GET['search']);
+            $this->albumsView->showAlbums($album);
+        }
+
+        else{
+            $albums = $this->albumsModel->getAll();
+            $this->albumsView->showAlbums($albums);
+        }
+            
     } 
 
     function showAllSongs(){
@@ -43,6 +54,9 @@ class AlbumController {
         $this->songsView->showAlbumSongs($songs, $album);
     }
 
+    function adminView(){
+        $this->adminView->showAdmin();
+    }
 
     function addAlbum(){
 
@@ -80,6 +94,12 @@ class AlbumController {
         $this->songsModel->delete($id);
 
         $this->showSongs($id_album_fk);
+    }
+
+    function loginView(){
+     
+        $this->loginView->loginView();
+    
     }
 
 }
