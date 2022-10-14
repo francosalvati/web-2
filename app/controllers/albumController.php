@@ -5,7 +5,7 @@ require_once './app/models/cancionesModel.php';
 require_once './app/views/albumsView.php';
 require_once './app/views/cancionesView.php';
 require_once './app/views/adminView.php';
-require_once './app/views/loginView.php';
+require_once './app/views/authView.php';
 
 class AlbumController {
 
@@ -23,10 +23,10 @@ class AlbumController {
         $this->songsModel = new CancionesModel();
         $this->songsView = new CancionesView();
         $this->adminView = new AdminView();
-        $this->loginView = new LoginView();
+        $this->authView = new AuthView();
     }
     
-    function showAlbums(){
+    function showAll(){
         
         if(isset($_GET['search'])){
             $album = $this->albumsModel->getAlbum($_GET['search']);
@@ -94,12 +94,6 @@ class AlbumController {
         $this->songsModel->delete($id);
 
         $this->showSongs($id_album_fk);
-    }
-
-    function loginView(){
-     
-        $this->loginView->loginView();
-    
     }
 
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-05 15:38:53
+/* Smarty version 4.2.1, created on 2022-10-14 16:38:45
   from 'C:\xampp\htdocs\TPEweb2\templates\albumsList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633d88eddd3216_68619788',
+  'unifunc' => 'content_6349747539d814_45988294',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14f3d9d14043f78408eee90cb07417814a8ebaba' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEweb2\\templates\\albumsList.tpl',
-      1 => 1664933892,
+      1 => 1665703804,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_633d88eddd3216_68619788 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6349747539d814_45988294 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -45,9 +45,8 @@ $_smarty_tpl->tpl_vars['album']->do_else = false;
                     </div>
                     <div class="card-body p-2">
                         <h2 class="h5 card-text text-center text-muted"><?php echo $_smarty_tpl->tpl_vars['album']->value->nombre;?>
-</h2>
-                        <a href="deleteAlbum/<?php echo $_smarty_tpl->tpl_vars['album']->value->id;?>
-"><button class="btn color-primary" >X</button></a>
+<a href="deleteAlbum/<?php echo $_smarty_tpl->tpl_vars['album']->value->id;?>
+" ><button type="button" class="btn btn-danger" >X</button></a></h2>
                     </div>
                 </div>
             </div>

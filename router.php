@@ -1,11 +1,12 @@
 <?php
 
 require_once 'app/controllers/albumController.php';
+require_once 'app/controllers/authController.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
 
-$action = 'home';
+$action = 'albums';
 
 if (!empty($_GET['action'])){
     $action = $_GET['action'];
@@ -13,11 +14,22 @@ if (!empty($_GET['action'])){
 
 $params = explode('/', $action);
 
- $albumController = new albumController();
 
 switch($params[0]){
-    case 'home':
-        $albumController->showAlbums();
+
+    case 'login':
+        $authController = new AuthController();
+        $authController->showView();
+        break;
+
+    case 'validate':
+        $authController = new AuthController();
+        $authController->validateUser();
+        break;
+
+    case 'albums':
+        $albumController = new AlbumController();
+        $albumController->showAll();
         break;
 
     case 'canciones':
@@ -50,10 +62,6 @@ switch($params[0]){
         if(!empty($params[2])){
         $albumController->deleteSong($params[2], $params[1]);
         }
-        break;
-    
-    case'login':
-        $albumController->loginView();
         break;
 
     default:
