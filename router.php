@@ -19,13 +19,17 @@ switch($params[0]){
 
     case 'login':
         $authController = new AuthController();
-        $authController->showView();
+        $authController->showLogin();
         break;
 
     case 'validate':
         $authController = new AuthController();
         $authController->validateUser();
         break;
+
+    case 'logout':
+        $authController = new AuthController();
+        $authController->logOut();
 
     case 'albums':
         $albumController = new AlbumController();

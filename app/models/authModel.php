@@ -6,11 +6,11 @@ class AuthModel {
 
     function __construct(){
     
-        $this->db = new PDO ('mysqyl:host=localhost;'.'dbname=db_canciones;charset=utf8', 'root', '');
+        $this->db = new PDO ('mysql:host=localhost;'.'dbname=db_canciones;charset=utf8', 'root', '');
     
     }
 
-    function getUser(){
+    function getUser($usuario){
 
         $query = $this->db->prepare('SELECT * FROM users where usuario = ?');
         $query->execute([$usuario]);

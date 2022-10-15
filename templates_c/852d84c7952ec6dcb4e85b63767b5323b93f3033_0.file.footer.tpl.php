@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-14 16:38:45
+/* Smarty version 4.2.1, created on 2022-10-15 02:10:02
   from 'C:\xampp\htdocs\TPEweb2\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634974754e79d9_65799056',
+  'unifunc' => 'content_6349fa5a5436e4_89311941',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_634974754e79d9_65799056 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6349fa5a5436e4_89311941 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="footer d-flex align-items-end">
     <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-end py-3 my-4 border-top">

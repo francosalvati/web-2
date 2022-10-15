@@ -32,7 +32,20 @@ class AuthController {
             $_SESSION['USER_ID'] = $user->id;
             $_SESSION['USER_USUARIO'] = $user->usuario;
             $_SESSION['IS_LOGGED'] = true;
+
+            header('Location: ' . BASE_URL);
+        }else {
+            $this->$authView->showFromLogin('usuario o contraseña incorrecta');
         }
+    }
+
+    function logOut(){
+        
+        session_start();
+        session_destroy();
+
+        header('Location: ' . BASE_URL);
+
     }
     
 }
