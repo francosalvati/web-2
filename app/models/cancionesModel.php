@@ -18,6 +18,16 @@ class CancionesModel{
         return $canciones;
     }
 
+    function getSong($id){
+
+        $query = $this->db->prepare('SELECT * FROM canciones where id = ?');
+        $query->execute([$id]);
+
+        $song = $query->fetch(PDO::FETCH_OBJ);
+        
+        return $song;
+    }
+
     function getAlbumSongs($id_album_fk){
 
         $query = $this->db->prepare('SELECT * FROM canciones where id_album_fk = ?');

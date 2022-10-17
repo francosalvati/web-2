@@ -40,7 +40,7 @@ class AlbumsModel {
 
     function modify($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL, $id){
 
-        $query = $this->db->prepare("UPDATE album SET nombre = ?, anio=?, banda=?, genero=?, cant_canciones=?, imgURL=? WHERE id= ?");
+        $query = $this->db->prepare("UPDATE album SET nombre = ?, banda=?, genero=?, anio=?, cant_canciones=?, imgURL= ? WHERE id= ?");
         $query->execute([$nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL, $id]);
 
     }

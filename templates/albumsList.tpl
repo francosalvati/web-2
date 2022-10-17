@@ -16,7 +16,7 @@
                         </h2>
                         {if isset($smarty.session.USER_ID)}
                             <div class="justify-content-around d-flex">
-                                <a href="adminEdit"><button type="button" class="btn text-warning btn-light">Edit</button></a>
+                                <a href="albumEdit/{$album->id}"><button type="button" class="btn text-warning btn-light">Edit</button></a>
                                 <a href="deleteAlbum/{$album->id}"><button type="button" class="btn text-danger btn-light">Delete</button></a>
                             </div>
                         {/if}
@@ -29,7 +29,7 @@
             <div class="col">
                 <div class="card p-1 bg-light mx-2">
                     <div>
-                        <a href="adminAdd">
+                        <a href="albumAdd">
                             <img src="https://us.123rf.com/450wm/siamimages/siamimages1611/siamimages161100055/65441642-a%C3%B1adir-signo-m%C3%A1s-ic%C3%B3nico-dise%C3%B1o.jpg?ver=6"
                                 class="images img-thumbnail" height="230">
                         </a>

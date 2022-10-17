@@ -78,27 +78,37 @@ switch($params[0]){
     case'deleteSong':
         $albumController = new AlbumController();
         if(!empty($params[2])){
-        $albumController->deleteSong($params[2], $params[1]);
+        $albumController->deleteSong($params[1], $params[2]);
         }
         break;
 
     case'editSong':
         $albumController = new AlbumController();
         if(!empty($params[2])){
-        $albumController->modifySong($params[2], $params[1]);
+        $albumController->modifySong($params[1], $params[2]);
         }
         break;
 
-    //SONGS
+    //ADMIN
 
-    case 'adminAdd':
+    case 'albumAdd':
         $albumController = new AlbumController();
-        $albumController->adminView();
+        $albumController->albumAdmin();
         break;  
-    case 'adminEdit':
+    case 'albumEdit':
         $albumController = new AlbumController();
         $edit=true;
-        $albumController->adminView($edit);
+        $albumController->albumAdmin($params[1], $edit);
+        break;   
+
+    case 'songAdd':
+        $albumController = new AlbumController();
+        $albumController->songAdmin($params[1]);
+        break;  
+    case 'songEdit':
+        $albumController = new AlbumController();
+        $edit=true;
+        $albumController->songAdmin($params[1], $params[2], $edit);
         break;   
 
     default:

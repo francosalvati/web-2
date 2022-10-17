@@ -9,11 +9,22 @@ class AdminView{
         $this->smarty = new Smarty();
     }
 
-    function showAdmin($edit = null){ 
+    function showAlbumForm($album = null,$edit = null){ 
         
         $this->smarty->assign('edit',$edit);
+        $this->smarty->assign('album',$album);
 
-        $this->smarty->display('templates/adminForm.tpl');
+        $this->smarty->display('templates/albumForm.tpl');
+    
+    }
+
+    function showSongForm($id_album_fk = null, $song = null, $edit = null){ 
+        
+        $this->smarty->assign('song',$song);
+        $this->smarty->assign('id_album_fk',$id_album_fk);
+        $this->smarty->assign('edit',$edit);
+
+        $this->smarty->display('templates/songForm.tpl');
     
     }
   } 
