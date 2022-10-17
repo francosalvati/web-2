@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-15 02:10:02
+/* Smarty version 4.2.1, created on 2022-10-17 03:49:26
   from 'C:\xampp\htdocs\TPEweb2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6349fa5a516189_49699007',
+  'unifunc' => 'content_634cb4a6881814_28604658',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b11e5183644fe7ab1ea27b0ba5b52a69bc1080bf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEweb2\\templates\\header.tpl',
-      1 => 1665703804,
+      1 => 1665971364,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6349fa5a516189_49699007 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634cb4a6881814_28604658 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -34,11 +34,12 @@ function content_6349fa5a516189_49699007 (Smarty_Internal_Template $_smarty_tpl)
     <title>Spoty-False</title>
 
     <!-- bootstrap -->
-    <link href="estilos/estilos.css" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -53,18 +54,27 @@ function content_6349fa5a516189_49699007 (Smarty_Internal_Template $_smarty_tpl)
                     <li><a href="#" class="nav-link px-2 text-light">Albums</a></li>
                     <li><a href="canciones" class="nav-link px-2 text-light">Canciones</a></li>
                 </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="get" action="">
+                <?php if ((isset($_smarty_tpl->tpl_vars['search']->value))) {?>
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="get" action="">
                     <input type="search" id="search" name="search" class="form-control form-control-white text-bg-light text-dark"
-                        placeholder="Search..." aria-label="Search">
-                </form>
+                    placeholder="Search..." aria-label="Search">
+                    </form>
+                <?php }?>
 
-                <div class="text-end">
+                <?php if (!(isset($_SESSION['USER_ID']))) {?>
+                    <div >
                     <a href="login"><button type="button" class="btn btn-warning">login</button></a>
                 </div>
+                  <?php } else { ?> 
+                    <div>
+                    <a href="logout"><button type="button" class="btn btn-warning">logout (<?php echo $_SESSION['USER_USUARIO'];?>
+)</button></a>
+                </div>
+                  <?php }?>
             </div>
         </div>
     </nav>
+
 
 <?php }
 }

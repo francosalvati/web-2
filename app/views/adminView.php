@@ -9,8 +9,11 @@ class AdminView{
         $this->smarty = new Smarty();
     }
 
-    function showAdmin(){ 
+    function showAdmin($edit = null){ 
+        
+        $this->smarty->assign('edit',$edit);
 
         $this->smarty->display('templates/adminForm.tpl');
+    
     }
   } 

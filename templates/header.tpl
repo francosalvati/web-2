@@ -10,11 +10,12 @@
     <title>Spoty-False</title>
 
     <!-- bootstrap -->
-    <link href="estilos/estilos.css" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -29,16 +30,24 @@
                     <li><a href="#" class="nav-link px-2 text-light">Albums</a></li>
                     <li><a href="canciones" class="nav-link px-2 text-light">Canciones</a></li>
                 </ul>
-
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="get" action="">
+                {if isset($search)}
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="get" action="">
                     <input type="search" id="search" name="search" class="form-control form-control-white text-bg-light text-dark"
-                        placeholder="Search..." aria-label="Search">
-                </form>
+                    placeholder="Search..." aria-label="Search">
+                    </form>
+                {/if}
 
-                <div class="text-end">
+                {if !isset($smarty.session.USER_ID)}
+                    <div >
                     <a href="login"><button type="button" class="btn btn-warning">login</button></a>
                 </div>
+                  {else} 
+                    <div>
+                    <a href="logout"><button type="button" class="btn btn-warning">logout ({$smarty.session.USER_USUARIO})</button></a>
+                </div>
+                  {/if}
             </div>
         </div>
     </nav>
+
 

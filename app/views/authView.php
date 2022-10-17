@@ -10,16 +10,10 @@ private $smarty;
         $this->smarty = new Smarty();
     }
 
-    function loginView(){
 
+    function showFromLogin($error = null) {
+
+        $this->smarty->assign("error", $error);
         $this->smarty->display('templates/login.tpl');
-    }
-
-    function showFormLogin($error) {
-        if(!empty($error)){    
-            $this->smarty->assign("error", $error);
-        }
-
-        $this->smarty->display('login.tpl');
     }
 }

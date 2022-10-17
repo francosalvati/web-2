@@ -8,7 +8,7 @@ class AuthHelper {
     function authLogin(){
         session_start();
         if(!isset($_SESSION['IS_LOGGED'])){
-             header("location: ". BASEURL . "admin"):
+             header("location: ". BASE_URL . "login");
              die();
         }   
     }

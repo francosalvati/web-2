@@ -16,7 +16,7 @@ class AuthController {
     }
 
     function showLogin() {
-        $this->authView->loginView();
+        $this->authView->showFromLogin();
     }
     
     function validateUser(){
@@ -34,8 +34,8 @@ class AuthController {
             $_SESSION['IS_LOGGED'] = true;
 
             header('Location: ' . BASE_URL);
-        }else {
-            $this->$authView->showFromLogin('usuario o contraseña incorrecta');
+        } else{
+            $this->authView->showFromLogin('usuario o contraseña incorrecta');
         }
     }
 

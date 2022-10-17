@@ -10,26 +10,36 @@
                             <img src="{$album->imgURL}" class="w-100">
                         </a>
                     </div>
-                    <div class="card-body p-2">
-                        <h2 class="h5 card-text text-center text-muted">{$album->nombre}<a href="deleteAlbum/{$album->id}" ><button type="button" class="btn btn-danger" >X</button></a></h2>
+                    <div class="card-body p-2 ">
+                        <h2 class="h5 card-text text-center text-muted">{$album->nombre}
+
+                        </h2>
+                        {if isset($smarty.session.USER_ID)}
+                            <div class="justify-content-around d-flex">
+                                <a href="adminEdit"><button type="button" class="btn text-warning btn-light">Edit</button></a>
+                                <a href="deleteAlbum/{$album->id}"><button type="button" class="btn text-danger btn-light">Delete</button></a>
+                            </div>
+                        {/if}
                     </div>
                 </div>
             </div>
-            
+
         {/foreach}
-        <div class="col">
-            <div class="card p-1 bg-light mx-2">
-                <div>
-                    <a href="admin">
-                        <img src="https://us.123rf.com/450wm/siamimages/siamimages1611/siamimages161100055/65441642-a%C3%B1adir-signo-m%C3%A1s-ic%C3%B3nico-dise%C3%B1o.jpg?ver=6"
-                            class="images img-thumbnail" height="230">
-                    </a>
-                </div>
-                <div class="card-body p-2">
-                    <h2 class="h5 card-text text-center text-muted">Agregar album</h2>
+        {if isset($smarty.session.USER_ID)}
+            <div class="col">
+                <div class="card p-1 bg-light mx-2">
+                    <div>
+                        <a href="adminAdd">
+                            <img src="https://us.123rf.com/450wm/siamimages/siamimages1611/siamimages161100055/65441642-a%C3%B1adir-signo-m%C3%A1s-ic%C3%B3nico-dise%C3%B1o.jpg?ver=6"
+                                class="images img-thumbnail" height="230">
+                        </a>
+                    </div>
+                    <div class="card-body p-2 ">
+                        <h2 class="h5 card-text text-center text-muted">Agregar album</h2>
+                    </div>
                 </div>
             </div>
-        </div>
+        {/if}
     </div>
 </div>
 

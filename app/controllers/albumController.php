@@ -6,6 +6,8 @@ require_once './app/views/albumsView.php';
 require_once './app/views/cancionesView.php';
 require_once './app/views/adminView.php';
 require_once './app/views/authView.php';
+require_once './app/helpers/authHelper.php';
+
 
 class AlbumController {
 
@@ -15,6 +17,7 @@ class AlbumController {
     private $songsView;
     private $adminView;
     private $loginView;
+    private $authHelper;
 
     function __construct() {
         
@@ -24,42 +27,41 @@ class AlbumController {
         $this->songsView = new CancionesView();
         $this->adminView = new AdminView();
         $this->authView = new AuthView();
+        $this->authHelper = new AuthHelper();
+        
     }
+
+    //ALBUMS
     
     function showAll(){
-        
+
         if(isset($_GET['search'])){
-            $album = $this->albumsModel->getAlbum($_GET['search']);
+            session_start();
+            $album = $this->albumsModel->search($_GET['search']);
             $this->albumsView->showAlbums($album);
         }
 
-        else{
+        else{  
+            session_start();
             $albums = $this->albumsModel->getAll();
             $this->albumsView->showAlbums($albums);
         }
             
     } 
 
-    function showAllSongs(){
+    function showAlbum($id_album_fk){
         
-        $songs = $this->songsModel->getAll();
-        $this->songsView->showAllSongs($songs);
-    }
-
-    function showSongs($id_album_fk){
-        
+        session_start();
         $album = $this->albumsModel->getAlbum($id_album_fk);
         $songs = $this->songsModel->getAlbumSongs($id_album_fk);
         
         $this->songsView->showAlbumSongs($songs, $album);
     }
-
-    function adminView(){
-        $this->adminView->showAdmin();
-    }
-
+  
+    
     function addAlbum(){
 
+        session_start();
         $nombre = $_GET['nombre'];
         $banda = $_GET['banda'];
         $genero = $_GET['genero'];
@@ -69,11 +71,55 @@ class AlbumController {
 
         $this->albumsModel->insert($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL);
 
-        $this->showAlbums();
+        $this->showAll();
+    }
+
+
+    function deleteAlbum($id){
+        session_start();
+        $this->albumsModel->delete($id);
+
+        $this->showAll();
+    }
+
+    function modifyAlbum($id){
+        session_start();
+
+        $nombre = $_GET['nombre'];
+        $banda = $_GET['banda'];
+        $genero = $_GET['genero'];
+        $año = $_GET['año'];
+        $cantidadCanciones = $_GET['cant-canciones'];
+        $imgURL = $_GET['imgURL'];
+
+        $this->albumsModel->modify($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL, $id);
+
+        $this->showAll();
+
+    }
+  
+
+    //SONGS
+
+    function modifySong($id_album_fk){
+        session_start();
+
+        $this->songsModel->modify($id_album_fk);
+
+        $this->showSongs($id_album_fk);
+    }
+    
+
+    function deleteSong($id, $id_album_fk){
+        session_start();
+        $this->songsModel->delete($id);
+
+        $this->showSongs($id_album_fk);
     }
 
     function addSong($id_album_fk){
 
+        session_start();
         $nombre = $_GET['nombre'];
         $duracion = $_GET['duracion'];
 
@@ -82,18 +128,17 @@ class AlbumController {
         $this->showSongs($id_album_fk);
     }
 
-    function deleteAlbum($id){
+    function showAllSongs(){
         
-        $this->albumsModel->delete($id);
-
-        $this->showAlbums();
+        session_start();
+        $songs = $this->songsModel->getAll();
+        $this->songsView->showAllSongs($songs);
     }
+    //ADMIN FORMS
 
-    function deleteSong($id, $id_album_fk){
-
-        $this->songsModel->delete($id);
-
-        $this->showSongs($id_album_fk);
+    function adminView($edit=null){
+        session_start();
+        
+        $this->adminView->showAdmin($edit);
     }
-
 }

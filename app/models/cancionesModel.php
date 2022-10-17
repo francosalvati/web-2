@@ -34,6 +34,12 @@ class CancionesModel{
         $query->execute([$nombre, $duracion, $albumId]);
     }
 
+    function modify($nombre, $duracion, $albumId, $id){
+
+        $query = $this->db->prepare("UPDATE song SET nombre=?,duracion=?,id_album_fk=? WHERE id= ?");
+        $query->execute([$nombre, $duracion, $albumId, $id]);
+    }
+
     function delete($id){
 
         $query = $this->db->prepare('DELETE FROM canciones where id = ?');

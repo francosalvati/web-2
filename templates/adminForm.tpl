@@ -5,8 +5,12 @@
     <div class="card d-flex justify-content-center mt-4name">
         <div class="container d-flex justify-content-center my-4 py-4">
             <div class="col-md-8 col-lg-10">
-                <h4 class="mb-3">Agregar Album</h4>
-                <form id="form-album" action="addAlbum" method="GET">
+                {if isset($edit)}
+                    <h4 class="mb-3">Editar album</h4>
+                {else}
+                    <h4 class="mb-3">Agregar Album</h4>
+                {/if}
+                <form id="form-album" {if isset($edit)} action="editAlbum" {else} action="addAlbum" {/if} method="GET">
                     <div class="row g-3">
                         <div class="col-sm-12">
                             <label for="firstName" class="form-label">Nombre del Album</label>
@@ -56,8 +60,12 @@
                     </div>
 
                     <hr class="my-4">
+                    {if isset($edit)}
+                        <button class="w-100 btn btn-warning btn-lg text-align-center" type="submit">Editar Album</button>
+                    {else}
+                        <button class="w-100 btn btn-primary btn-lg text-align-center" type="submit">Agregar Album</button>
+                    {/if}
 
-                    <button class="w-75 btn btn-primary btn-lg text-align-center" type="submit">Agregar Album</button>
                 </form>
             </div>
         </div>
