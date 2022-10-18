@@ -23,11 +23,12 @@ class CancionesView{
         
     }
 
-    function showAllSongs($songs){
+    function showAllSongs($songs, $albums){
         
         $i=1;
-
+        
         $this->smarty->assign('songs', $songs);
+        $this->smarty->assign('albums', $albums);
         $this->smarty->assign('i', $i);
         
         $this->smarty->display('templates/songsList.tpl');

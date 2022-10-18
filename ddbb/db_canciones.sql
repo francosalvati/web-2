@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2022 a las 23:49:33
+-- Tiempo de generación: 18-10-2022 a las 01:43:54
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -32,7 +32,7 @@ CREATE TABLE `album` (
   `nombre` varchar(60) NOT NULL,
   `banda` varchar(60) NOT NULL,
   `genero` varchar(60) NOT NULL,
-  `año` int(11) NOT NULL,
+  `anio` int(11) NOT NULL,
   `cant_canciones` int(11) NOT NULL,
   `imgURL` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -41,10 +41,12 @@ CREATE TABLE `album` (
 -- Volcado de datos para la tabla `album`
 --
 
-INSERT INTO `album` (`id`, `nombre`, `banda`, `genero`, `año`, `cant_canciones`, `imgURL`) VALUES
+INSERT INTO `album` (`id`, `nombre`, `banda`, `genero`, `anio`, `cant_canciones`, `imgURL`) VALUES
 (1, 'Devorando Intensidad', 'El plan de la mariposa', 'Rock', 2017, 13, 'https://i.scdn.co/image/ab67616d0000b273f8eaa1230efe02e0be3fb1b7'),
 (2, 'vida', 'sui generis', 'rock nacional', 1972, 11, 'https://upload.wikimedia.org/wikipedia/commons/0/01/Sui_Generis_-_Vida.jpg'),
-(3, 'Oktubre', 'Patricio rey y sus redonditos de ricota', 'Rock nacional', 1986, 9, 'https://www.cmtv.com.ar/tapas-cd/redondosoktubre.jpg');
+(3, 'Oktubre', 'Patricio rey y sus redonditos de ricota', 'Rock nacional', 1986, 9, 'https://www.cmtv.com.ar/tapas-cd/redondosoktubre.jpg'),
+(21, 'Eco', 'Jorge Drexler', 'Pop, Rock', 2004, 12, 'https://i.scdn.co/image/ab67616d0000b273c943c87f0730e247a6fb027b'),
+(22, 'La biblia', 'Vox Dei', 'Rock Nacional', 1973, 8, 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Vox_Dei_%E2%80%93_La_Biblia.jpg');
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,6 @@ CREATE TABLE `canciones` (
 --
 
 INSERT INTO `canciones` (`id`, `nombre`, `duracion`, `id_album_fk`) VALUES
-(1, 'Necesito', 213, 2),
 (2, 'Cancion para mi muerte', 335, 2),
 (5, 'Cuando comenzamos a nacer', 243, 2),
 (6, 'Amigo vuelve pronto', 325, 2),
@@ -76,7 +77,8 @@ INSERT INTO `canciones` (`id`, `nombre`, `duracion`, `id_album_fk`) VALUES
 (13, 'Mar argentino', 343, 1),
 (14, 'Invierno nuclear', 409, 1),
 (15, 'Como decir que no?', 419, 1),
-(16, 'Cruz del sur', 430, 1);
+(16, 'Cruz del sur', 430, 1),
+(17, 'invierno loco', 222, 1);
 
 -- --------------------------------------------------------
 
@@ -87,8 +89,15 @@ INSERT INTO `canciones` (`id`, `nombre`, `duracion`, `id_album_fk`) VALUES
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `usuario` varchar(30) NOT NULL,
-  `contraseña` varchar(30) NOT NULL
+  `contraseña` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `usuario`, `contraseña`) VALUES
+(1, 'admin1', '$2a$12$UdFHoiSnkqS3sp6PJd7XY.lT54irsDff6YF/fPVrVMrrI4Cn84w6q');
 
 --
 -- Índices para tablas volcadas
@@ -121,19 +130,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `album`
 --
 ALTER TABLE `album`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `canciones`
 --
 ALTER TABLE `canciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

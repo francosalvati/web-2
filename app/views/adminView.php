@@ -18,9 +18,9 @@ class AdminView{
     
     }
 
-    function showSongForm($id_album_fk = null, $song = null, $edit = null){ 
+    function showSongForm($id_album_fk = null, $id = null, $edit = null){ 
         
-        $this->smarty->assign('song',$song);
+        $this->smarty->assign('id',$id);
         $this->smarty->assign('id_album_fk',$id_album_fk);
         $this->smarty->assign('edit',$edit);
 

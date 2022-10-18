@@ -46,7 +46,7 @@ class CancionesModel{
 
     function modify($nombre, $duracion, $albumId, $id){
 
-        $query = $this->db->prepare("UPDATE song SET nombre=?,duracion=?,id_album_fk=? WHERE id= ?");
+        $query = $this->db->prepare("UPDATE canciones SET nombre=?, duracion=?, id_album_fk = ? WHERE id = ?");
         $query->execute([$nombre, $duracion, $albumId, $id]);
     }
 

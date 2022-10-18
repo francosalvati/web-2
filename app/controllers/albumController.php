@@ -114,7 +114,8 @@ class AlbumController {
        
         $nombre = $_POST['nombre'];
         $duracion = $_POST['duracion'];
-        $this->songsModel->modify($id_album_fk);
+      
+        $this->songsModel->modify($nombre, $duracion, $id_album_fk, $id);
 
         $this->showAlbum($id_album_fk);
     }
@@ -130,8 +131,9 @@ class AlbumController {
     function showAllSongs(){
         
         session_start();
+        $albums = $this->albumsModel->getAll();
         $songs = $this->songsModel->getAll();
-        $this->songsView->showAllSongs($songs);
+        $this->songsView->showAllSongs($songs, $albums);
     }
     //ADMIN FORMS
 
@@ -142,11 +144,11 @@ class AlbumController {
         $this->adminView->showAlbumForm($album, $edit);
     }
 
-    function songAdmin($id_album_fk = null, $id = null, $edit = null){
+    function songAdmin( $id = null, $id_album_fk = null, $edit = null){
         session_start();
         
         $song = $this->songsModel->getSong($id);
 
-        $this->adminView->showSongForm($id_album_fk, $song, $edit);
+        $this->adminView->showSongForm($id_album_fk, $id, $edit);
     }
 }
