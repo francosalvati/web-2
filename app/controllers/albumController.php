@@ -102,6 +102,8 @@ class AlbumController {
 
     function addSong($id_album_fk){
 
+
+
         $nombre = $_POST['nombre'];
         $duracion = $_POST['duracion'];
 
@@ -112,6 +114,8 @@ class AlbumController {
 
     function modifySong($id, $id_album_fk){
        
+
+
         $nombre = $_POST['nombre'];
         $duracion = $_POST['duracion'];
       
@@ -123,6 +127,8 @@ class AlbumController {
 
     function deleteSong($id, $id_album_fk){
         
+        $this->authHelper->authLogin();
+
         $this->songsModel->delete($id);
 
         $this->showAlbum($id_album_fk);
