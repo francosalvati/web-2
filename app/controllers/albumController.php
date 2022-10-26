@@ -1,22 +1,18 @@
 <?php
 
 require_once './app/models/albumsModel.php';
-require_once './app/models/cancionesModel.php';
 require_once './app/views/albumsView.php';
+require_once './app/models/cancionesModel.php';
 require_once './app/views/cancionesView.php';
-require_once './app/views/adminView.php';
-require_once './app/views/authView.php';
 require_once './app/helpers/authHelper.php';
 
 
 class AlbumController {
 
     private $albumsModel;
-    private $songsModel;
     private $albumsView;
+    private $songsModel;
     private $songsView;
-    private $adminView;
-    private $loginView;
     private $authHelper;
 
     function __construct() {
@@ -25,8 +21,6 @@ class AlbumController {
         $this->albumsView = new AlbumsView();
         $this->songsModel = new CancionesModel();
         $this->songsView = new CancionesView();
-        $this->adminView = new AdminView();
-        $this->authView = new AuthView();
         $this->authHelper = new AuthHelper();
         
     }
@@ -48,19 +42,10 @@ class AlbumController {
         }
             
     } 
-
-    function showAlbum($id_album_fk){
-        
-        session_start();
-        $album = $this->albumsModel->getAlbum($id_album_fk);
-        $songs = $this->songsModel->getAlbumSongs($id_album_fk);
-        
-        $this->songsView->showAlbumSongs($songs, $album);
-    }
-  
     
     function addAlbum(){
 
+        $this->authHelper->authLogin();
 
         $nombre = $_POST['nombre'];
         $banda = $_POST['banda'];
@@ -75,14 +60,18 @@ class AlbumController {
     }
 
 
-    function deleteAlbum($id){
+    function deleteAlbum($params = null){
 
-        $this->albumsModel->delete($id);
+        $this->authHelper->authLogin();
+
+        $this->albumsModel->delete($params[':ID']);
 
         $this->showAll();
     }
 
-    function modifyAlbum($id){
+    function modifyAlbum($params){
+
+        $this->authHelper->authLogin();
 
         $nombre = $_POST['nombre'];
         $banda = $_POST['banda'];
@@ -91,7 +80,7 @@ class AlbumController {
         $cantidadCanciones = $_POST['cant-canciones'];
         $imgURL = $_POST['imgURL'];
 
-        $this->albumsModel->modify($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL, $id);
+        $this->albumsModel->modify($nombre, $banda, $genero, $año, $cantidadCanciones, $imgURL, $params[':ID']);
 
         $this->showAll();
 
@@ -100,21 +89,40 @@ class AlbumController {
 
     //SONGS
 
-    function addSong($id_album_fk){
+    function showSongs($params = null){
+        
+        
+        
+        if(isset($params[':ID'])){
+            session_start();
+            $album = $this->albumsModel->getAlbum($params[':ID']);
+            $songs = $this->songsModel->getAlbumSongs($params[':ID']);
+            
+            $this->songsView->showAlbumSongs($songs, $album);
+        }else{
+            session_start();
+            $albums = $this->albumsModel->getAll();
+            $songs = $this->songsModel->getAll();
+            $this->songsView->showAllSongs($songs, $albums);
+        }
+        
+    }
 
+    function addSong($params = null){
 
+        $this->authHelper->authLogin();
 
         $nombre = $_POST['nombre'];
         $duracion = $_POST['duracion'];
 
-        $this->songsModel->insert( $nombre, $duracion, $id_album_fk);
+        $this->songsModel->insert($nombre, $duracion, $params[':ID']);
 
-        $this->showAlbum($id_album_fk);
+        $this->showAlbum($params[':ID']);
     }
 
     function modifySong($id, $id_album_fk){
        
-
+        $this->authHelper->authLogin();
 
         $nombre = $_POST['nombre'];
         $duracion = $_POST['duracion'];
@@ -133,28 +141,5 @@ class AlbumController {
 
         $this->showAlbum($id_album_fk);
     }
-
-    function showAllSongs(){
-        
-        session_start();
-        $albums = $this->albumsModel->getAll();
-        $songs = $this->songsModel->getAll();
-        $this->songsView->showAllSongs($songs, $albums);
-    }
-    //ADMIN FORMS
-
-    function albumAdmin($id_album_fk = null, $edit = null){
-        session_start();
-        $album = $this->albumsModel->getAlbum($id_album_fk);
-
-        $this->adminView->showAlbumForm($album, $edit);
-    }
-
-    function songAdmin( $id = null, $id_album_fk = null, $edit = null){
-        session_start();
-        
-        $song = $this->songsModel->getSong($id);
-
-        $this->adminView->showSongForm($id_album_fk, $id, $edit);
-    }
+  
 }

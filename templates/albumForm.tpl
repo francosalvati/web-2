@@ -10,7 +10,7 @@
                 {else}
                     <h4 class="mb-3">Agregar Album</h4>
                 {/if}
-                <form id="form-album" {if isset($edit)} action="editAlbum/{$album->id}" {else} action="addAlbum" {/if} method="POST">
+                <form id="form-album" {if isset($edit)} action="edit-album/{$album->id}" {else} action="add-album" {/if} method="POST">
                     <div class="row g-3">
                         <div class="col-sm-12">
                             <label class="form-label">Nombre del Album</label>

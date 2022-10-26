@@ -39,7 +39,7 @@ class AuthController {
         }
     }
 
-    function logOut(){
+    function logout(){
         
         session_start();
         session_destroy();

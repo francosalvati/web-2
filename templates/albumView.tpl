@@ -29,7 +29,7 @@
                             <button type="button" class="btn text-warning btn-light">Edit</button>
                         </a>
 
-                        <a href="deleteSong/{$song->id}/{$album->id}">
+                        <a href="delete-song/{$song->id}/{$album->id}">
                             <button type="button" class="btn text-danger btn-light">Delete</button>
                         </a>
                     {/if}

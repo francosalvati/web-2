@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-15 02:12:57
+/* Smarty version 4.2.1, created on 2022-10-26 17:28:53
   from 'C:\xampp\htdocs\TPEweb2\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6349fb093d81d9_91711137',
+  'unifunc' => 'content_63595235769c43_73400360',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '852d84c7952ec6dcb4e85b63767b5323b93f3033' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEweb2\\templates\\footer.tpl',
-      1 => 1665703804,
+      1 => 1666798132,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6349fb093d81d9_91711137 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63595235769c43_73400360 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="footer d-flex align-items-end">
     <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-end py-3 my-4 border-top">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-18 01:01:29
+/* Smarty version 4.2.1, created on 2022-10-26 17:43:38
   from 'C:\xampp\htdocs\TPEweb2\templates\albumsList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634ddec91d1085_75394049',
+  'unifunc' => 'content_635955aa1b2d97_90273963',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14f3d9d14043f78408eee90cb07417814a8ebaba' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEweb2\\templates\\albumsList.tpl',
-      1 => 1666047686,
+      1 => 1666798997,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634ddec91d1085_75394049 (Smarty_Internal_Template $_smarty_tpl) {
+function content_635955aa1b2d97_90273963 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -37,7 +37,7 @@ $_smarty_tpl->tpl_vars['album']->do_else = false;
             <div class="col">
                 <div class="card p-1 bg-light mx-2">
                     <div>
-                        <a href="canciones/<?php echo $_smarty_tpl->tpl_vars['album']->value->id;?>
+                        <a href="songs/<?php echo $_smarty_tpl->tpl_vars['album']->value->id;?>
 ">
                             <img src="<?php echo $_smarty_tpl->tpl_vars['album']->value->imgURL;?>
 " class="w-100">
@@ -52,7 +52,7 @@ $_smarty_tpl->tpl_vars['album']->do_else = false;
                             <div class="justify-content-around d-flex">
                                 <a href="albumEdit/<?php echo $_smarty_tpl->tpl_vars['album']->value->id;?>
 "><button type="button" class="btn text-warning btn-light">Edit</button></a>
-                                <a href="deleteAlbum/<?php echo $_smarty_tpl->tpl_vars['album']->value->id;?>
+                                <a href="delete-album/<?php echo $_smarty_tpl->tpl_vars['album']->value->id;?>
 "><button type="button" class="btn text-danger btn-light">Delete</button></a>
                             </div>
                         <?php }?>

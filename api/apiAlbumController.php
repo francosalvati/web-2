@@ -23,4 +23,8 @@ class ApiAlbumController{
             return $this->view->response($albums, 200);
         }
     }
+
+    function delete($params){
+        
+    }
 }

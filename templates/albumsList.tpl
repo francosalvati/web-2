@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="card p-1 bg-light mx-2">
                     <div>
-                        <a href="canciones/{$album->id}">
+                        <a href="songs/{$album->id}">
                             <img src="{$album->imgURL}" class="w-100">
                         </a>
                     </div>
@@ -17,7 +17,7 @@
                         {if isset($smarty.session.USER_ID)}
                             <div class="justify-content-around d-flex">
                                 <a href="albumEdit/{$album->id}"><button type="button" class="btn text-warning btn-light">Edit</button></a>
-                                <a href="deleteAlbum/{$album->id}"><button type="button" class="btn text-danger btn-light">Delete</button></a>
+                                <a href="delete-album/{$album->id}"><button type="button" class="btn text-danger btn-light">Delete</button></a>
                             </div>
                         {/if}
                     </div>

@@ -5,7 +5,7 @@ class CancionesModel{
     private $db;
 
     function __construct(){
-        $this->db = new PDO ('mysql:host=localhost;'.'dbname=db_song;charset=utf8', 'root', '');
+        $this->db = new PDO ('mysql:host=localhost;'.'dbname=db_canciones;charset=utf8', 'root', '');
     }
 
     function getAll(){
@@ -40,7 +40,7 @@ class CancionesModel{
 
     function insert($nombre, $duracion, $albumId){
     
-        $query = $this->db->prepare('INSERT INTO canciones(nombre, duracion, id_album_fk) VALUES (?, ?, ?)');
+        $query = $this->db->prepare("INSERT INTO canciones(nombre, duracion, id_album_fk) VALUES (?, ?, ?)");
         $query->execute([$nombre, $duracion, $albumId]);
     }
 

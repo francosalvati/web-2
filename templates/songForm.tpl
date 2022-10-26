@@ -7,9 +7,9 @@
         <h4 class="mb-3">Agregar Cancion</h4>
     {/if}
     <hr>
-    <form  {if isset($edit)} action="editSong/{$id}/{$id_album_fk}" {else} action="addSong/{$id_album_fk}" {/if}
-        method="POST">
+    <form  {if isset($edit)} action="edit-song/{$id}/{$id_album_fk}" {else} action="add-song/{$id_album_fk}" {/if}
         
+        method="POST">
         <div class="mb-3">
             <label class="form-label">Nombre:</label>
             <input type="text" name="nombre" class="form-control">
